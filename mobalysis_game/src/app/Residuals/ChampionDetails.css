@@ -1,0 +1,167 @@
+:root{
+    --bg_one:#2C2747;
+    --bg_two:#191820;
+    --secondaryBg:#282732;
+    --textColor:#BD9E59;
+    --textColorblue:#2C1DA1;
+    --textLightColor:#8890B5;
+}
+.champion-container{
+    position: relative;
+    top:1rem;
+}
+.profile-sect{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+.profile-sect .avatarName{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    font-weight: bold;
+}
+.profile-sect .avatarChamp {
+    /* display:block; */
+    /* justify-content: center;
+    align-items: center; */
+    width:4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border:3px solid var(--textColor);
+}
+.profile-sect .avatarChamp img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.profile-sect .avatarName .nameav{
+    font-size: 16px;
+    margin-left: 0.8rem;
+}
+.profile-sect .avatarName .roleshow{
+    font-size: 13px;
+    color:var(--textLightColor);
+    margin-left: 0.8rem;
+}
+.list-group .list-group-item{
+    display:flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    background:var(--bg_two);
+    color:var(--textLightColor);
+    border-color: var(--textLightColor);
+}
+.list-group .list-group-item .rate,.percent{
+  font-size: 13px;
+}
+.list-group .list-group-item .percent{
+    color:#fff;
+}
+
+/* ------ Components Section---- */
+/* ----- Profile Header Section ----- */
+.profileHeader{
+    width:100%;
+    height:auto;
+    background: var(--bg_two);
+    padding: 0.5rem;
+}
+.profileHeader .name-section{
+    display:flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+}
+.name-section .avatarChamp {
+    /* display:block; */
+    /* justify-content: center;
+    align-items: center; */
+    width:3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border:3px solid var(--textColor);
+}
+.name-section .avatarName{
+    display: flex;
+    justify-content:center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 0.4rem;
+}
+.name-section .avatarName .nameav,.name-section .popularSect .poptext{
+    font-size: 11px;
+    color:#fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.name-section .avatarName .avatarRole span{
+    font-size: 10px;
+    color:var(--textLightColor);
+    font-weight: bold;
+}
+.name-section .popularSect{
+    display: flex;
+    justify-content:center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+.name-section .popularSect .poprate{
+    font-size: 10px;
+    color:var(--textLightColor);
+    font-weight: bold;
+
+}
+/* End Profile Header Section */
+.championStatsContent{
+    position:relative;
+    display:grid;
+    grid-template-columns:8.5rem 15rem auto;
+}
+
+/* ------ SideNav Section ------ */
+.sidenav-section{
+    position: relative;
+    width:100%;
+    height:auto;
+    background: var(--bg_two);
+    padding:.5rem;
+    border-top: 1px solid var(--bg_one);
+  
+}
+.sidenav-section.recommend{
+    margin-top: 2.6rem;
+}
+.sidenav-section h3{
+    font-size:11px;
+    color:#fff;
+    font-weight: bold;
+    margin-top:0.8rem;
+    text-transform: uppercase;
+}
+.sidenav-section .build-wr,
+.sidenav-section .buildContent .buildpop,
+.sidenav-section .buildContent .buildrate{
+    display:flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    color:var(--textLightColor);
+    font-size:11px;
+}
+.sidenav-section .toplayerheader{
+  display:flex;
+  justify-content:space-between;
+  align-items: flex-start;
+}
+.sidenav-section .ml-name{
+    margin-left: 0.4rem;
+}
+/* ------ End SideNav Section ------ */
+
+/* ---- Main Section ------ */
+/* .main-section{
+    width:calc(367px - 136px);
+} */
