@@ -6,7 +6,6 @@ import { Store } from "../../contextStore";
 import NoData from '../components/NoData';
 import { baseUrl } from '../../config/url';
 import PaginationComponent from '../components/Pagination';
-import Search from '../components/Search';
 const ChampionsV1 = () => {
 
     const [champions, setChampions] = useState([]);
@@ -14,7 +13,7 @@ const ChampionsV1 = () => {
     const { state } = useContext(Store);
     const [currentPage,setCurrentPage]= useState(1);
     const [championPerPage]=useState(50);
-    const [searchTerm,setSearchTerm]=useState('');
+    const [championsAlt, setChampionsAlt] = useState([]);
 
 
     useEffect(() => {
@@ -24,6 +23,7 @@ const ChampionsV1 = () => {
             .then(response => {
                 const sortedChampions = sortData(response.data?.champions || []);
                 setChampions(sortedChampions);
+                setChampionsAlt(sortedChampions);
                 setLoading(false);
             })
             .catch(error => {
@@ -51,10 +51,19 @@ const ChampionsV1 = () => {
         });
         return sortedChampions
     }
+    // pagination codes
     const indexOfLastChampion = currentPage * championPerPage;
     const indexOfFirstChampion = indexOfLastChampion - championPerPage;
     const currentChampions = champions.slice(indexOfFirstChampion,indexOfLastChampion);
-    const paginate = (pageNumber)=>setCurrentPage(pageNumber)
+    const paginate = (pageNumber)=>setCurrentPage(pageNumber);
+
+    // search codes
+    
+  const searchChampions = (event) => {
+    let filter = event.target.value.toLowerCase();
+    let filteredChampions = championsAlt.filter(item => item.name.toLowerCase().includes(filter));
+    setChampions(filteredChampions);
+  }
 
     return (
         <section>
@@ -74,7 +83,7 @@ const ChampionsV1 = () => {
                         <input type="search" 
                         className="form-control" 
                         placeholder="Search" 
-                        style={{width:"240px",height:"40px"}} onChange={(e)=>setSearchTerm(e.target.value)}/>
+                        style={{width:"240px",height:"40px"}} onChange={searchChampions}/>
                   
                         </div>
                         </div>
@@ -96,19 +105,10 @@ const ChampionsV1 = () => {
                         {
                             !Loading ?
                             champions && champions.length > 0 ?
-                            currentChampions.filter(val=>{
-                                if(searchTerm === ""){
-                                    return val
-                                }else if(
-                                    val.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                    val.title.toLowerCase().includes(searchTerm.toLowerCase())
-                                ){
-                                    return val
-                                }
-                            }).map((champion, index) => {
+                            currentChampions.map((champion, index) => {
                                 return(
                                     <tr>
-                                    <td>{champion?.key}</td>
+                                    <td>{index+1}</td>
                                     <td>
                                     <NavLink to={{pathname: `/championstats/${champion?.id}`}} className="name-link">
                                     <img src={champion?.image} alt={champion?.id} className="champimg"/>
