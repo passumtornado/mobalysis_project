@@ -14,6 +14,7 @@ const ChampionsV1 = () => {
     const [currentPage,setCurrentPage]= useState(1);
     const [championPerPage]=useState(50);
     const [championsAlt, setChampionsAlt] = useState([]);
+   
 
 
     useEffect(() => {
@@ -64,6 +65,18 @@ const ChampionsV1 = () => {
     let filteredChampions = championsAlt.filter(item => item.name.toLowerCase().includes(filter));
     setChampions(filteredChampions);
   }
+  const handleNextBtn = (page)=>{
+      setCurrentPage(currentPage + 1);
+      if(currentPage + 1 > page.length){
+         setCurrentPage(1)
+      }
+  }
+  const handlePrevBtn = ()=>{
+    setCurrentPage(currentPage - 1);
+    if(currentPage - 1 < 1){
+        setCurrentPage(1);
+     }
+}
 
     return (
         <section>
@@ -77,6 +90,9 @@ const ChampionsV1 = () => {
                            championPerPage={championPerPage} 
                            totalChampions={champions.length}
                            paginate={paginate}
+                           currentPage={currentPage}
+                           handleNext = {handleNextBtn}
+                           handlePrev = {handlePrevBtn}
                         />
                         </div>
                         <div className="col-lg-6 d-flex flex-row-reverse">

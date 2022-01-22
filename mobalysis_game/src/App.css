@@ -990,6 +990,10 @@ span.btn-secondary.dropdown-toggle {
   /* margin-left:auto;
   margin-right: auto; */
 }
+/* Pagination */
+.page-item a.Active{
+  background: #0d6efd !important;
+}
 @media (max-width: 576px) {
 }
 
