@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import  Pagination  from 'react-bootstrap/Pagination'
 
 const PaginationComponent = ({championPerPage,totalChampions,paginate,currentPage,handleNext,handlePrev}) => {
-  const [currentButton, setCurrentButton] = useState(1);
+ 
   const pages = Math.ceil(totalChampions/championPerPage);
    const pageNumber = [];
    for(let i=1;i<=pages;i++){
